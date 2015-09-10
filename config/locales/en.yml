@@ -8,7 +8,7 @@
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t('hello') %>
+#     	<%= t('hello') %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -21,3 +21,19 @@
 
 en:
   hello: "Hello world"
+  home: "Home"
+  title: "Framgia E-Learning System"
+  welcome: "Welcome to Framgia ELS"
+  to_begin: "To begin learing please sign up first."
+  sign_up: "Sign up now!"
+  help: "Help"
+  help_msg: "Help page of Framgia ELS."
+  contact: "Contact"
+  contact_msg: "Contact page of Framgia ELS."
+  about: "About"
+  about_msg: "About page of Framgia ELS."
+  log_in: "Log In"
+  footer_msg: "Framgia-ELS team"
+
+
+
