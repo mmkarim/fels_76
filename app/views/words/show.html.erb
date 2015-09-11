@@ -1,0 +1,21 @@
+<% provide(:title, t("words"))   %>
+<h1><%= t "words" %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag words_path, :method => "get"  do  %>
+    <%= select_tag :search, options_from_collection_for_select(@categories, "id", "title") %>
+    <%= submit_tag :Search, :name => nil, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<ul class="words">
+  <% unless @category.blank? %>
+    <% @category.words.each do |word| %>
+      <li>
+        <p> <b><%= word.content %></b> (<%= word.pronunciation %>) </p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
