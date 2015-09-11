@@ -34,6 +34,12 @@ en:
   about_msg: "About page of Framgia ELS."
   log_in: "Log In"
   footer_msg: "Framgia-ELS team"
-
-
-
+  signup: "Sign up"
+  create_acc: "Create my account"
+  name: "Name"
+  email: "Email"
+  password: "Password"
+  confirmation: "Confirmation"
+  error: "error"
+  form_contain: "The form contains"
+  
