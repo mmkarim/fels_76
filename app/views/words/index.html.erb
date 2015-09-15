@@ -1,0 +1,22 @@
+<% provide :title, t("words") %>
+<h1><%= t "words" %></h1>
+
+<div class="form-inline">
+  <%= form_tag words_path, remote: true, method: "get"  do  %>
+    <div class="col-md-2">
+      <%= select_tag :search, options_from_collection_for_select(@categories, "id", "title") %>
+    </div>
+    <% Word::OPTION.each do |key,value| %>
+      <div class="form-group">
+        <%= radio_button_tag(:option, value) %>
+        <%= label_tag(:option_tag, t(value)) %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= submit_tag :Search, name: nil, class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+<div class="row" id="show-words">
+  <%= render "index" %>
+</div>

@@ -1,0 +1,24 @@
+<% unless @category.blank? %>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th><%= t"word" %></th>
+        <th><%= t"pronunciation" %></th>
+        <th><%= t"meaning" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @category.words.each do |word| %>
+        <tr>
+          <td><%= word.content %></td>
+          <td><%= word.pronunciation %></td>
+          <td>
+            <% word.choices.each do |choice| %>
+              <%= choice.content %>
+            <% end %>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

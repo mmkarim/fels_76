@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
   get "signup"  => "users#new"
-    resources :users
+  resources :users
 
   get "lessons" => "categories#index"
   resources :categories, only: [:show, :index]
 
-  get "words"   => "words#show"
-  resources :words, only: [:show]
+  resources :words, only: [:index]
 
   namespace :admin do
     resources :categories, only: [:new, :edit, :create]

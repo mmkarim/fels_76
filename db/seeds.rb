@@ -5,7 +5,7 @@
 end
 
 categories = Category.order(:created_at).take(9)
-50.times do |n|
+15.times do |n|
   content = "Word #{n+1}"
   pronunciation = "Word #{n+1}'s pronunciation"
   categories.each {|category| category.words.create!(content: content, pronunciation: pronunciation)}
@@ -17,7 +17,7 @@ words = Word.all
   words.each {|word| word.choices.create!(content: content)}
 end
 
-100.times do |n|
+10.times do |n|
   name  = Faker::Name.name
   email = "abc-#{n+1}@abc.com"
   password = "123456"
@@ -25,4 +25,15 @@ end
               email: email,
               password:              password,
               password_confirmation: password)
+
+User.create!(name:  "Admin",
+             email: "admin@admin.org",
+             password:              "123456",
+             password_confirmation: "123456")
+end
+
+users = User.order(:created_at).take(5)
+5.times do |n|
+  category_id = n+1
+  users.each {|user| user.lessons.create!(category_id: category_id)}
 end
