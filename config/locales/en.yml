@@ -31,3 +31,14 @@ en:
   log_out: "Log out"
   log_in_error: "Invalid email/password combination"
   remember: "Remember me on this machine"
+  learned: "Learned"
+  not_learned: "Not Learned"
+  all: "All"
+  checked: "Checked"
+  total_activity: "Total Activities"
+  word: "Word"
+  pronunciation: "Pronunciation"
+  meaning: "Meaning"
+  ago: ago
+  new_lesson: "Add New Lessons"
+

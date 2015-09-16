@@ -4,9 +4,5 @@ class Word < ActiveRecord::Base
   validates :category_id, presence: true
   validates :content, presence: true, length: {maximum: 80}
 
-  def self.search(search)
-    if search
-      self.find_by category_id: search
-    end
-  end
+  OPTION = {learned: :learned, not_learned: :not_learned, all: :all}
 end
