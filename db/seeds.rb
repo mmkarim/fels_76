@@ -16,3 +16,13 @@ words = Word.all
   content = "Option #{n+1}"
   words.each {|word| word.choices.create!(content: content)}
 end
+
+100.times do |n|
+  name  = Faker::Name.name
+  email = "abc-#{n+1}@abc.com"
+  password = "123456"
+  User.create!(name:  name,
+              email: email,
+              password:              password,
+              password_confirmation: password)
+end
