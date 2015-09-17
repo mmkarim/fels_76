@@ -13,7 +13,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :categories, only: [:new, :edit, :create, :update]
-    resources :words, only: [:new, :edit, :create, :update]
+    resources :words, only: [:new, :edit, :create, :update, :show]
+    resources :choices, only: [:create, :delete]
   end
   resources :users
   get "login"   => "sessions#new"
