@@ -25,12 +25,14 @@ end
               email: email,
               password:              password,
               password_confirmation: password)
+end
 
 User.create!(name:  "Admin",
              email: "admin@admin.org",
              password:              "123456",
-             password_confirmation: "123456")
-end
+             password_confirmation: "123456",
+             admin: true)
+
 
 users = User.order(:created_at).take(5)
 5.times do |n|
