@@ -4,6 +4,12 @@ class Admin::WordsController < ApplicationController
   def new
     @categories = Category.all
     @word = Word.new
+    3.times{@word.choices.new}
+  end
+
+  def show
+    @word = Word.find params[:id]
+    @choice = Choice.new
   end
 
   def create
@@ -12,6 +18,7 @@ class Admin::WordsController < ApplicationController
       flash[:success] = t :word_created
       redirect_to words_path
     else
+      @categories = Category.all
       render :new
     end
   end
@@ -33,7 +40,7 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit(:content, :pronunciation, :category_id)
+    params.require(:word).permit(:content, :pronunciation, :category_id, choices_attributes: [:content])
   end
 
   def admin_user
