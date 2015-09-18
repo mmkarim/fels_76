@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get "lessons" => "categories#index"
   resources :categories, only: [:show, :index]
 
-  resources :words, only: [:index]
+  resources :words, only: [:index, :show]
 
   namespace :admin do
     resources :categories, only: [:new, :edit, :create, :update]
-    resources :words, only: [:new, :edit, :create, :update, :show]
+    resources :words, only: [:new, :edit, :create, :update]
     resources :choices, only: [:create, :delete]
   end
   resources :users

@@ -3,15 +3,20 @@
     <%= form_for [:admin, @word] do |f| %>
       <%= render "shared/errors", target: f.object %>
       <%= f.select :category_id, options_from_collection_for_select(@categories, "id", "title") %>
+
       <%= f.label :content, t("word_content") %>
       <%= f.text_field :content, class: "form-control" %>
+
       <%= f.label :pronunciation, t("pronunciation") %>
       <%= f.text_field :pronunciation, class: "form-control" %>
 
-      <%= f.fields_for :choices do |choice| %>
-          <%= choice.label :content, t("choice") %>
-          <%= choice.text_field :content, class: "form-control" %>
-      <% end %>
+      <div id="choices_list">
+        <%= f.fields_for :choices do |choice_builder| %>
+          <%= render "choice_fields", f: choice_builder %>
+        <% end %>
+      </div>
+
+      <p><%= link_to_add_fields "Add Choice", f, :choices %></p>
 
       <%= f.submit t("submit"), class: "btn btn-primary" %>
     <% end %>

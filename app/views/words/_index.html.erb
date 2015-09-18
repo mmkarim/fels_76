@@ -10,13 +10,15 @@
     <tbody>
       <% @category.words.each do |word| %>
         <tr>
-          <td><%= word.content %></td>
+          <td><%= link_to word.content, word %></td>
           <td><%= word.pronunciation %></td>
           <td>
             <% word.choices.each do |choice| %>
-              <%= choice.content %>
+              <% if choice.correct%>
+                <%= choice.content %>
+              <% end %>
             <% end %>
-        </td>
+          </td>
         </tr>
       <% end %>
     </tbody>
