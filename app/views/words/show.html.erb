@@ -1,0 +1,9 @@
+<% provide :title, t("words") %>
+<h1><%= @word.content %></h1>
+<h2><%= @word.pronunciation %></h2>
+<h3><%= t "choices" %></h3>
+<ol>
+<% @choices.each do |choice| %>
+  <li><%= choice.content %></li>
+<% end %>
+</ol>
