@@ -14,9 +14,7 @@
           <td><%= word.pronunciation %></td>
           <td>
             <% word.choices.each do |choice| %>
-              <% if choice.correct%>
-                <%= choice.content %>
-              <% end %>
+              <%= choice.content if choice.correct? %>
             <% end %>
           </td>
         </tr>
