@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   get "about"   => "static_pages#about"
   get "contact" => "static_pages#contact"
   get "signup"  => "users#new"
-  resources :users
+
+  resources :users do
+    resources :following, :followers, only: [:index]
+  end
+
+  resources :relationships, only: [:create, :destroy]
 
   get "lessons" => "categories#index"
   resources :categories, only: [:show, :index]
