@@ -66,4 +66,8 @@ en:
   choice: "Choice"
   remove: "remove"
   add_choice: "Add Choices"
-
+  following: "Following"
+  followers: "Followers"
+  view: "View my profile"
+  unfollow: "Unfollow"
+  follow: "Follow"

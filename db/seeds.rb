@@ -39,3 +39,10 @@ users = User.order(:created_at).take(5)
   category_id = n+1
   users.each {|user| user.lessons.create!(category_id: category_id)}
 end
+
+users = User.all
+user  = users.first
+following = users[2..11]
+followers = users[3..7]
+following.each {|followed| user.follow(followed)}
+followers.each {|follower| follower.follow(user)}

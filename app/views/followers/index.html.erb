@@ -1,0 +1,4 @@
+<% provide :title, t("followers")%>
+<% @followers.each do |follower| %>
+  <p><%= link_to follower.name, follower %></p>
+<% end %>
