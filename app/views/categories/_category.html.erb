@@ -1,4 +1,16 @@
 <li>
-  <%= link_to category.title, category  %>
-  <p> <%= category.info %> </p>      
+  <div class="form-inline">
+    <div class="form-group">
+      <h3> <%= category.title %> </h3>
+      <p> <%= category.info %> </p>
+    </div>
+    <% if logged_in? %>
+      <div class="form-group">
+        <%= form_for [category, Lesson.new] do |f| %>
+          <%= f.hidden_field :category_id, value: category.id %>
+          <%= f.submit t("start"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </li>

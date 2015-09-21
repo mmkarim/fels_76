@@ -35,7 +35,8 @@ class Admin::WordsController < ApplicationController
 
   private
   def word_params
-    params.require(:word).permit(:content, :pronunciation, :category_id, choices_attributes: [:id, :content, :correct, :_destroy])
+    params.require(:word).permit(:content, :pronunciation, :category_id,
+      choices_attributes: [:id, :content, :correct, :_destroy])
   end
 
   def admin_user

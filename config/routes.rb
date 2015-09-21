@@ -9,11 +9,12 @@ Rails.application.routes.draw do
     resources :following, :followers, only: [:index]
   end
 
+  resources :categories, only: [:show, :index] do
+    resources :lessons
+  end
+
   resources :relationships, only: [:create, :destroy]
-
-  get "lessons" => "categories#index"
-  resources :categories, only: [:show, :index]
-
+  resources :users
   resources :words, only: [:index, :show]
 
   namespace :admin do
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
     resources :words, only: [:new, :edit, :create, :update]
     resources :choices, only: [:create, :delete]
   end
+
   resources :users
   get "login"   => "sessions#new"
   post "login"  => "sessions#create"

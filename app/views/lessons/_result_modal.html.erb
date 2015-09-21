@@ -1,0 +1,49 @@
+<div class="modal fade" id="result-modal" tabindex="-1" role="dialog"
+  aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">
+          <%= t :result %>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th><%= t"word" %></th>
+              <th><%= t"option" %></th>
+              <th><%= t"result" %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @lesson.results.each do |result| %>
+              <tr>
+                <td><%= result.word.content %></td>
+                <td>
+                  <%= result.choice.try(:content) ? result.choice.content : t("not_selected") %>
+                </td>
+                <td>
+                  <%= result.choice.try(:correct) ? t("correct") : t("incorrect") %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= t :total %> <%= @lesson.results.count %>
+        <%= t :and %>
+        <%= t :correct_answer %>
+        <div id="number-correct-choices"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">
+          <%= t "cancel" %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
