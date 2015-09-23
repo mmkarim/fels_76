@@ -3,7 +3,7 @@ class CreateLessons < ActiveRecord::Migration
     create_table :lessons do |t|
       t.references :user, index: true, foreign_key: true
       t.references :category, index: true, foreign_key: true
-      t.boolean :finished
+      t.boolean :finished, default: false
 
       t.timestamps null: false
     end

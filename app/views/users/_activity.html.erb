@@ -1,8 +1,12 @@
 <% unless @activity.blank? %>
-  <ul class="microposts">
+  <ul class="activity">
     <% @activity.each do |act| %>
       <li>
-        <span class="content"><%= t "checked"%> <%= link_to act.category.title, act.category %></span>
+        <span class="content">
+          <%= t("learned")%> <%= act.number_correct_choices %>/
+          <%= act.words.count %> <%= t("word_in") %>
+          <%= link_to act.category.title, url_for([act.category, act]) %>
+        </span>
         <span class="timestamp">
           :: <%= time_ago_in_words(act.created_at) %> <%= t "ago"%>.
         </span>
