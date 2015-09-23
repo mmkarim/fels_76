@@ -1,0 +1,19 @@
+<% unless current_user.lessons.blank? %>
+  <h3><%= t "total_activity" %>(<%= current_user.lessons.count %>)</h3>
+  <br>
+  <ul class="activity">
+    <% current_user.lessons.each do |lesson| %>
+      <li>
+        <span class="content">
+          <%= t("learned")%> <%= lesson.number_correct_choices %>/
+          <%= lesson.words.count %> <%= t("word_in") %>
+          <%= link_to lesson.category.title, url_for([lesson.category, lesson]) %>
+        </span>
+        <span class="timestamp">
+          :: <%= time_ago_in_words(lesson.created_at) %> <%= t "ago"%>.
+        </span>
+      </li>
+      <br>
+    <% end %>
+  </ul>
+<% end %>

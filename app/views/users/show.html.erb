@@ -12,14 +12,7 @@
     </section>
   </aside>
   <div class="col-md-8">
-
     <%= render "follow_form" if logged_in? %>
-
   </div>
 </div>
-
-<% unless @activity.blank? %>
-  <h3><%= t "total_activity" %>(<%= @activity.count %>)</h3>
-  <br>
-  <%= render "activity" %>
-<% end %>
+<%= render "shared/activity" %>
