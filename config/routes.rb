@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :lessons
   end
 
+  resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :relationships, only: [:create, :destroy]
   resources :users
   resources :words, only: [:index, :show]
