@@ -99,3 +99,6 @@ en:
   non_empty: "can't be empty"
   update_password: "Update password"
   users_all: "All Users"
+  delete: "Delete User"
+  confirm: "Are you sure?"
+  delete_user: "User Deleted"

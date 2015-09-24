@@ -9,12 +9,12 @@
         </h1>
       </section>
       <section class="stats">
-        <%= render "shared/stats" %>
+        <%= render "shared/stats", user: current_user %>
       </section>
     </aside>
   </div>
   <div class="activity">
-    <%= render "shared/activity" %>
+    <%= render "shared/activity", user: current_user %>
   </div>
 <% else %>
 <div class="center jumbotron">

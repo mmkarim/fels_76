@@ -9,6 +9,7 @@ class WordsController < ApplicationController
         Word.send params[:option], current_user.id, params[:category_id]
       end
     else
+      params[:option] = Settings.all_word
       @word = []
     end
   end

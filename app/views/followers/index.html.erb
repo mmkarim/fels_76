@@ -1,4 +1,12 @@
-<% provide :title, t("followers")%>
-<% @followers.each do |follower| %>
-  <p><%= link_to follower.name, follower %></p>
-<% end %>
+<% provide :title, t("followers") %>
+<h1><%= t "followers" %></h1>
+<%= will_paginate %>
+<ul class="users">
+  <% @followers.each do |follower| %>
+    <li>
+      <%= gravatar_for follower %>
+      <%= link_to follower.name, follower %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate %>

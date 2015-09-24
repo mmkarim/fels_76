@@ -12,7 +12,8 @@ categories = Category.order(:created_at).take(9)
 end
 
 words = Word.all
-4.times do |n|
+words.each {|word| word.choices.create!(content: "Option 0", correct: true)}
+3.times do |n|
   content = "Option #{n+1}"
   words.each {|word| word.choices.create!(content: content)}
 end

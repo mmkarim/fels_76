@@ -8,6 +8,8 @@ class Lesson < ActiveRecord::Base
 
   before_create :assign_words
 
+  scope :sort, -> {order(created_at: :desc)}
+
   def number_correct_choices
     results.select{|result| result.choice.try :correct}.count
   end

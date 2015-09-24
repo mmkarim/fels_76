@@ -1,8 +1,8 @@
-<% unless current_user.lessons.blank? %>
-  <h3><%= t "total_activity" %>(<%= current_user.lessons.count %>)</h3>
+<% unless user.lessons.blank? %>
+  <h3><%= t "total_activity" %>(<%= user.lessons.count %>)</h3>
   <br>
   <ul class="activity">
-    <% current_user.lessons.each do |lesson| %>
+    <% user.lessons.sort.each do |lesson| %>
       <li>
         <span class="content">
           <%= t("learned")%> <%= lesson.number_correct_choices %>/

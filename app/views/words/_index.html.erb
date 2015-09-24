@@ -10,7 +10,7 @@
     <tbody>
       <% @words.each do |word| %>
         <tr>
-          <td><%= link_to word.content, word %></td>
+          <td><%= word.content %></td>
           <td><%= word.pronunciation %></td>
           <td>
             <% word.choices.each do |choice| %>

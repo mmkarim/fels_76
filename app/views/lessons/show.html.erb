@@ -13,9 +13,9 @@
       <% word.choices.each do |choice| %>
         <p>
           <%= result_builder.radio_button :choice_id, choice.id %>
-          <%= choice.content %> <%= "true" if choice.correct? %>
+          <%= choice.content %>
         </p>
-      <%end%>
+      <% end %>
     </div>
   <% end %>
   <%= f.submit t("submit"), class: "btn btn-primary" %>
