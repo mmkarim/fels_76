@@ -14,8 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :password_resets,     only: [:new, :create, :edit, :update]
-  resources :relationships, only: [:create, :destroy]
-  resources :users
+  resources :relationships, only: [:create, :destroy, :index]
   resources :words, only: [:index, :show]
 
   namespace :admin do
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
     resources :choices, only: [:create, :delete]
   end
 
-  resources :users
   get "login"   => "sessions#new"
   post "login"  => "sessions#create"
   delete "logout" => "sessions#destroy"

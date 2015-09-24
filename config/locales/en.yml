@@ -98,3 +98,4 @@ en:
   password_reset_timed_out: "Password reset has expired."
   non_empty: "can't be empty"
   update_password: "Update password"
+  users_all: "All Users"
